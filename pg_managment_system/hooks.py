@@ -247,3 +247,62 @@ app_license = "mit"
 # List of apps whose translatable strings should be excluded from this app's translations.
 # ignore_translatable_strings_from = []
 
+
+
+# ---------------------------------------------------------------------------
+# PG Management System
+# ---------------------------------------------------------------------------
+after_install = "pg_managment_system.install.after_install"
+after_migrate = "pg_managment_system.install.after_migrate"
+
+_SCOPED = (
+	"PG Property",
+	"PG Building",
+	"PG Floor",
+	"PG Room",
+	"PG Bed",
+	"PG Tenant",
+	"PG Booking",
+	"PG Occupancy",
+	"PG Rent Invoice",
+	"PG Electricity Meter",
+	"PG Meter Reading",
+	"PG Payment",
+	"PG Expense",
+	"PG WhatsApp Message",
+)
+
+# Property-level authorization (see pg_managment_system/permissions.py)
+permission_query_conditions = {dt: "pg_managment_system.permissions.property_query_conditions" for dt in _SCOPED}
+has_permission = {dt: "pg_managment_system.permissions.has_property_permission" for dt in _SCOPED}
+
+doc_events = {
+	"PG Booking": {"after_insert": "pg_managment_system.services.events.booking_after_insert"},
+	"PG Occupancy": {
+		"after_insert": "pg_managment_system.services.events.occupancy_after_insert",
+		"on_update": "pg_managment_system.services.events.occupancy_on_update",
+	},
+	"PG Payment": {"on_submit": "pg_managment_system.services.events.payment_on_submit"},
+}
+
+scheduler_events = {
+	"daily": ["pg_managment_system.services.billing.daily"],
+}
+
+# Business users never need Desk; send them to the Vue app after login.
+role_home_page = {
+	"PG Manager": "/hostelsuite",
+	"PG Accountant": "/hostelsuite",
+	"PG Staff": "/hostelsuite",
+}
+
+# Frappe's login always lands System Users on /app; bounce PG users (without
+# System Manager) to the Vue site instead. URL: site config `pg_frontend_url`.
+update_website_context = ["pg_managment_system.redirects.redirect_desk_to_frontend"]
+
+# Replace Frappe's /login with the HostelSuite (Vue) login. `/login?native=1` bypasses.
+page_renderer = [
+	"pg_managment_system.redirects.FrontendLoginPage",
+	# Serves the built Vue app at /hostelsuite (pg_managment_system/frontend.py)
+	"pg_managment_system.frontend.FrontendPage",
+]

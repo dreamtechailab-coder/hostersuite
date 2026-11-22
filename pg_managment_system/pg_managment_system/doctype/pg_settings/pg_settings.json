@@ -1,0 +1,237 @@
+{
+ "actions": [],
+ "allow_rename": 0,
+ "creation": "2026-11-18 10:00:00.000000",
+ "doctype": "DocType",
+ "engine": "InnoDB",
+ "field_order": [
+  "general_section",
+  "organization_name",
+  "currency",
+  "cb1",
+  "support_phone",
+  "support_email",
+  "billing_section",
+  "default_rent_due_day",
+  "auto_generate_invoices",
+  "invoice_generation_day",
+  "cb2",
+  "late_fee_amount",
+  "late_fee_grace_days",
+  "send_rent_reminders",
+  "reminder_days_before_due",
+  "whatsapp_section",
+  "whatsapp_enabled",
+  "whatsapp_api_base",
+  "whatsapp_api_version",
+  "cb3",
+  "whatsapp_phone_number_id",
+  "whatsapp_access_token",
+  "whatsapp_default_country_code",
+  "push_section",
+  "vapid_public_key",
+  "vapid_private_key",
+  "vapid_subject"
+ ],
+ "fields": [
+  {
+   "fieldname": "general_section",
+   "fieldtype": "Section Break",
+   "label": "General"
+  },
+  {
+   "default": "My PG",
+   "fieldname": "organization_name",
+   "fieldtype": "Data",
+   "label": "Organization Name"
+  },
+  {
+   "default": "INR",
+   "fieldname": "currency",
+   "fieldtype": "Link",
+   "label": "Currency",
+   "options": "Currency"
+  },
+  {
+   "fieldname": "cb1",
+   "fieldtype": "Column Break",
+   "label": ""
+  },
+  {
+   "fieldname": "support_phone",
+   "fieldtype": "Data",
+   "label": "Support Phone",
+   "options": "Phone"
+  },
+  {
+   "fieldname": "support_email",
+   "fieldtype": "Data",
+   "label": "Support Email",
+   "options": "Email"
+  },
+  {
+   "fieldname": "billing_section",
+   "fieldtype": "Section Break",
+   "label": "Billing"
+  },
+  {
+   "default": "5",
+   "fieldname": "default_rent_due_day",
+   "fieldtype": "Int",
+   "label": "Default Rent Due Day",
+   "non_negative": 1
+  },
+  {
+   "default": "1",
+   "fieldname": "auto_generate_invoices",
+   "fieldtype": "Check",
+   "label": "Auto Generate Monthly Invoices"
+  },
+  {
+   "default": "1",
+   "description": "Day of month on which rent invoices are generated automatically",
+   "fieldname": "invoice_generation_day",
+   "fieldtype": "Int",
+   "label": "Invoice Generation Day",
+   "non_negative": 1
+  },
+  {
+   "fieldname": "cb2",
+   "fieldtype": "Column Break",
+   "label": ""
+  },
+  {
+   "fieldname": "late_fee_amount",
+   "fieldtype": "Currency",
+   "label": "Late Fee Amount",
+   "options": "currency"
+  },
+  {
+   "default": "5",
+   "fieldname": "late_fee_grace_days",
+   "fieldtype": "Int",
+   "label": "Late Fee Grace Days",
+   "non_negative": 1
+  },
+  {
+   "default": "1",
+   "fieldname": "send_rent_reminders",
+   "fieldtype": "Check",
+   "label": "Send Rent Reminders"
+  },
+  {
+   "default": "3",
+   "fieldname": "reminder_days_before_due",
+   "fieldtype": "Int",
+   "label": "Reminder Days Before Due",
+   "non_negative": 1
+  },
+  {
+   "fieldname": "whatsapp_section",
+   "fieldtype": "Section Break",
+   "label": "WhatsApp (Meta Cloud API)"
+  },
+  {
+   "fieldname": "whatsapp_enabled",
+   "fieldtype": "Check",
+   "label": "Enable WhatsApp"
+  },
+  {
+   "default": "https://graph.facebook.com",
+   "fieldname": "whatsapp_api_base",
+   "fieldtype": "Data",
+   "label": "API Base URL"
+  },
+  {
+   "default": "v21.0",
+   "fieldname": "whatsapp_api_version",
+   "fieldtype": "Data",
+   "label": "API Version"
+  },
+  {
+   "fieldname": "cb3",
+   "fieldtype": "Column Break",
+   "label": ""
+  },
+  {
+   "fieldname": "whatsapp_phone_number_id",
+   "fieldtype": "Data",
+   "label": "Phone Number ID"
+  },
+  {
+   "fieldname": "whatsapp_access_token",
+   "fieldtype": "Password",
+   "label": "Access Token",
+   "length": 1000
+  },
+  {
+   "default": "91",
+   "fieldname": "whatsapp_default_country_code",
+   "fieldtype": "Data",
+   "label": "Default Country Code"
+  },
+  {
+   "fieldname": "push_section",
+   "fieldtype": "Section Break",
+   "label": "Web Push"
+  },
+  {
+   "fieldname": "vapid_public_key",
+   "fieldtype": "Small Text",
+   "label": "VAPID Public Key"
+  },
+  {
+   "fieldname": "vapid_private_key",
+   "fieldtype": "Password",
+   "label": "VAPID Private Key",
+   "length": 1000
+  },
+  {
+   "description": "mailto: address used for push",
+   "fieldname": "vapid_subject",
+   "fieldtype": "Data",
+   "label": "VAPID Subject"
+  }
+ ],
+ "index_web_pages_for_search": 0,
+ "issingle": 1,
+ "links": [],
+ "modified": "2026-11-18 10:00:00.000000",
+ "modified_by": "Administrator",
+ "module": "Pg Managment System",
+ "name": "PG Settings",
+ "owner": "Administrator",
+ "permissions": [
+  {
+   "create": 1,
+   "delete": 1,
+   "permlevel": 0,
+   "read": 1,
+   "report": 1,
+   "role": "System Manager",
+   "write": 1
+  },
+  {
+   "create": 1,
+   "delete": 1,
+   "permlevel": 0,
+   "read": 1,
+   "report": 1,
+   "role": "PG Admin",
+   "write": 1
+  },
+  {
+   "permlevel": 0,
+   "read": 1,
+   "role": "PG Manager"
+  },
+  {
+   "permlevel": 0,
+   "read": 1,
+   "role": "PG Accountant"
+  }
+ ],
+ "sort_field": "modified",
+ "sort_order": "DESC",
+ "states": []
+}

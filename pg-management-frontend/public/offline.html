@@ -1,0 +1,26 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>Offline – HostelSuite</title>
+<style>
+  :root { color-scheme: light dark; font-family: system-ui, -apple-system, Segoe UI, Roboto, sans-serif; }
+  body { margin: 0; min-height: 100vh; display: grid; place-items: center; background: #f8fafc; color: #0f172a; padding: 16px; }
+  @media (prefers-color-scheme: dark) { body { background: #0b1020; color: #e2e8f0; } .card { background: #111833 !important; border-color: #1e293b !important; } }
+  .card { max-width: 380px; text-align: center; background: #fff; border: 1px solid #e2e8f0; border-radius: 16px; padding: 32px 24px; }
+  img { width: 56px; height: 56px; }
+  h1 { font-size: 20px; margin: 16px 0 8px; }
+  p { color: #64748b; line-height: 1.5; margin: 0 0 20px; }
+  button { background: #4338ca; color: #fff; border: 0; border-radius: 10px; padding: 12px 20px; font-size: 15px; font-weight: 600; cursor: pointer; min-height: 44px; }
+</style>
+</head>
+<body>
+  <div class="card">
+    <img src="icons/logo.svg" alt="" />
+    <h1>You're offline</h1>
+    <p>HostelSuite needs an internet connection to load live data. Payments and changes are never saved while offline.</p>
+    <button onclick="location.reload()">Try again</button>
+  </div>
+</body>
+</html>
