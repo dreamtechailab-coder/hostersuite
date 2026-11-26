@@ -8,8 +8,8 @@ const props = withDefaults(defineProps<{ side?: 'left' | 'right' | 'bottom'; cla
   side: 'left',
 })
 const sides = {
-  left: 'inset-y-0 left-0 h-full w-[85%] max-w-xs border-r data-[state=closed]:slide-out-to-left data-[state=open]:slide-in-from-left',
-  right: 'inset-y-0 right-0 h-full w-[90%] max-w-md border-l data-[state=closed]:slide-out-to-right data-[state=open]:slide-in-from-right',
+  left: 'inset-y-0 left-0 h-full w-[85%] max-w-xs border-r pt-[env(safe-area-inset-top)] pb-[env(safe-area-inset-bottom)] pl-[env(safe-area-inset-left)] data-[state=closed]:slide-out-to-left data-[state=open]:slide-in-from-left',
+  right: 'inset-y-0 right-0 h-full w-[90%] max-w-md border-l pt-[env(safe-area-inset-top)] pb-[env(safe-area-inset-bottom)] pr-[env(safe-area-inset-right)] data-[state=closed]:slide-out-to-right data-[state=open]:slide-in-from-right',
   bottom: 'inset-x-0 bottom-0 max-h-[90dvh] rounded-t-2xl border-t data-[state=closed]:slide-out-to-bottom data-[state=open]:slide-in-from-bottom',
 }
 </script>

@@ -28,7 +28,7 @@ const list = useResourceList<Property>('PG Property', { scoped: false, pageSize:
     <LoadingSkeleton v-else-if="list.loading.value && !list.rows.value.length" variant="cards" />
     <EmptyState v-else-if="!list.rows.value.length" :icon="Building2" title="No properties found" description="Properties you have access to appear here." />
     <template v-else>
-      <div class="grid gap-3 sm:grid-cols-2 xl:grid-cols-3">
+      <div class="grid grid-cols-1 gap-3 sm:grid-cols-2 xl:grid-cols-3">
         <PropertyCard v-for="p in list.rows.value" :key="p.name" :property="p" />
       </div>
       <div v-if="list.pageCount.value > 1" class="mt-4 rounded-xl border bg-card">

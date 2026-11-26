@@ -19,7 +19,7 @@ const short = { read: 'R', write: 'W', create: 'C', delete: 'D', submit: 'S', ca
     <SettingsNav />
     <p class="mb-4 text-sm text-muted-foreground">
       Role permissions are enforced by the server. Non-admin roles are further limited to the properties assigned to each user.
-      <span class="whitespace-nowrap">R = read · W = edit · C = create · D = delete · S = submit · X = cancel.</span>
+      <span class="sm:whitespace-nowrap">R = read · W = edit · C = create · D = delete · S = submit · X = cancel.</span>
     </p>
     <ErrorState v-if="error" :error="error" @retry="run" />
     <LoadingSkeleton v-else-if="loading" />

@@ -39,8 +39,13 @@ export default defineConfig(({ mode }) => {
           start_url: `${SCOPE}?source=pwa`,
           scope: SCOPE,
           display: 'standalone',
-          display_override: ['window-controls-overlay', 'standalone'],
+          display_override: ['standalone', 'minimal-ui'],
           orientation: 'any',
+          lang: 'en-IN',
+          dir: 'ltr',
+          prefer_related_applications: false,
+          // reuse an open app window instead of stacking new ones (links, shortcuts, notifications)
+          launch_handler: { client_mode: ['navigate-existing', 'auto'] },
           theme_color: '#4338ca',
           background_color: '#f8fafc',
           categories: ['business', 'finance', 'productivity'],
@@ -53,12 +58,19 @@ export default defineConfig(({ mode }) => {
           shortcuts: [
             { name: 'Collect payment', url: `${BASE}payments/collect`, icons: [{ src: 'icons/pwa-192x192.png', sizes: '192x192' }] },
             { name: 'Tenants', url: `${BASE}tenants`, icons: [{ src: 'icons/pwa-192x192.png', sizes: '192x192' }] },
+            { name: 'Rooms', url: `${BASE}rooms`, icons: [{ src: 'icons/pwa-192x192.png', sizes: '192x192' }] },
+          ],
+          // shown in the richer install dialog (Chrome / Edge)
+          screenshots: [
+            { src: 'screenshots/narrow.png', sizes: '780x1688', type: 'image/png', form_factor: 'narrow', label: 'Sign in on your phone' },
+            { src: 'screenshots/wide.png', sizes: '1280x800', type: 'image/png', form_factor: 'wide', label: 'HostelSuite on desktop' },
           ],
         },
         workbox: {
           // Only the static app shell is precached. Business data and private
           // files are NEVER cached (NetworkOnly) – see runtimeCaching below.
           globPatterns: ['**/*.{js,css,html,ico,png,svg,woff2}'],
+          globIgnores: ['screenshots/**'], // install-dialog only, not needed offline
           navigateFallback: `${BASE}index.html`,
           navigateFallbackDenylist: [/^\/api\//, /^\/app/, /^\/desk/, /^\/files\//, /^\/private\//, /^\/assets\//, /^\/socket\.io/],
           cleanupOutdatedCaches: true,

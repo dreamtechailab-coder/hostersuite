@@ -7,7 +7,10 @@ interface BeforeInstallPromptEvent extends Event {
 }
 
 const deferred = ref<BeforeInstallPromptEvent | null>(null)
-const installed = ref(typeof window !== 'undefined' && window.matchMedia?.('(display-mode: standalone)').matches)
+const installed = ref(
+  typeof window !== 'undefined' &&
+    (window.matchMedia?.('(display-mode: standalone)').matches || (navigator as Navigator & { standalone?: boolean }).standalone === true),
+)
 
 if (typeof window !== 'undefined') {
   window.addEventListener('beforeinstallprompt', (e) => {

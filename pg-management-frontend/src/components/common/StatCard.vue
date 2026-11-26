@@ -46,7 +46,7 @@ const barClass = { default: 'bg-primary', success: 'bg-success', danger: 'bg-des
     </div>
     <div>
       <Skeleton v-if="loading" class="h-7 w-24" />
-      <p v-else class="tabular text-2xl font-semibold tracking-tight">{{ value ?? '—' }}</p>
+      <p v-else class="tabular text-xl font-semibold tracking-tight [overflow-wrap:anywhere] sm:text-2xl">{{ value ?? '—' }}</p>
       <p v-if="hint && !loading" class="mt-1 truncate text-xs text-muted-foreground">{{ hint }}</p>
       <slot />
     </div>

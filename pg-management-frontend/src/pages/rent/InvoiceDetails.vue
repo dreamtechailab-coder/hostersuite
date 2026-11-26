@@ -86,13 +86,13 @@ async function onCancel() {
           </div>
           <table class="mt-8 w-full text-sm">
             <thead class="border-b text-left text-xs uppercase tracking-wide text-muted-foreground">
-              <tr><th class="py-2 font-medium">Description</th><th class="py-2 font-medium">Type</th><th class="py-2 text-right font-medium">Amount</th></tr>
+              <tr><th class="py-2 font-medium">Description</th><th class="hidden py-2 font-medium sm:table-cell">Type</th><th class="py-2 text-right font-medium">Amount</th></tr>
             </thead>
             <tbody class="divide-y">
               <tr v-for="item in inv.items" :key="item.name">
-                <td class="py-3">{{ item.description }}</td>
-                <td class="py-3 text-muted-foreground">{{ item.item_type }}</td>
-                <td class="tabular py-3 text-right">{{ formatCurrency(item.amount) }}</td>
+                <td class="py-3 pr-3">{{ item.description }}<span class="mt-0.5 block text-xs text-muted-foreground sm:hidden">{{ item.item_type }}</span></td>
+                <td class="hidden py-3 text-muted-foreground sm:table-cell">{{ item.item_type }}</td>
+                <td class="tabular whitespace-nowrap py-3 text-right align-top">{{ formatCurrency(item.amount) }}</td>
               </tr>
             </tbody>
           </table>

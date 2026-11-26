@@ -73,7 +73,7 @@ const label = computed(() =>
         <span class="truncate">{{ label }}</span>
       </Button>
     </PopoverTrigger>
-    <PopoverContent align="end" class="w-72 p-2">
+    <PopoverContent align="end" class="w-[min(18rem,calc(100vw-2rem))] p-2">
       <div class="grid gap-0.5">
         <button
           v-for="p in props.presets"
@@ -87,10 +87,10 @@ const label = computed(() =>
       </div>
       <div v-if="preset === 'custom'" class="mt-2 space-y-2 border-t p-2 pt-3">
         <label class="block text-xs text-muted-foreground">From
-          <input v-model="draft.from" type="date" class="mt-1 h-9 w-full rounded-md border bg-card px-2 text-sm" />
+          <input v-model="draft.from" type="date" class="mt-1 h-10 w-full rounded-md border bg-card px-2 text-base md:h-9 md:text-sm" />
         </label>
         <label class="block text-xs text-muted-foreground">To
-          <input v-model="draft.to" type="date" :min="draft.from" class="mt-1 h-9 w-full rounded-md border bg-card px-2 text-sm" />
+          <input v-model="draft.to" type="date" :min="draft.from" class="mt-1 h-10 w-full rounded-md border bg-card px-2 text-base md:h-9 md:text-sm" />
         </label>
         <Button size="sm" class="w-full" :disabled="!draft.from || !draft.to || draft.from > draft.to" @click="applyCustom">Apply</Button>
       </div>

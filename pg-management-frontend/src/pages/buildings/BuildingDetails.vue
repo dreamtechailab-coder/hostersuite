@@ -50,7 +50,7 @@ const editOpen = ref(false)
           <span class="text-sm text-muted-foreground">· {{ f.rooms.length }} rooms</span>
         </div>
         <Card v-if="!f.rooms.length"><CardContent class="text-sm text-muted-foreground">No rooms on this floor. <RouterLink :to="{ path: '/rooms', query: { add: '1', building: name, floor: f.name } }" class="font-medium text-primary hover:underline">Add a room</RouterLink></CardContent></Card>
-        <div v-else class="grid gap-3 sm:grid-cols-2 xl:grid-cols-4"><RoomCard v-for="r in f.rooms" :key="r.name" :room="r" /></div>
+        <div v-else class="grid grid-cols-1 gap-3 sm:grid-cols-2 xl:grid-cols-4"><RoomCard v-for="r in f.rooms" :key="r.name" :room="r" /></div>
       </section>
       <FloorFormDialog v-model:open="floorOpen" :property="data.building.property" :building="name" @saved="run" />
       <BuildingFormDialog v-model:open="editOpen" :building="data.building" @saved="run" />

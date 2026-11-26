@@ -29,12 +29,11 @@ async function onInstall() {
       <Button variant="ghost" size="icon" class="-ml-2 lg:hidden" aria-label="Open navigation" @click="ui.mobileNavOpen = true">
         <Menu class="size-5" />
       </Button>
-      <PropertySelector class="hidden sm:flex" />
-      <PropertySelector compact class="sm:hidden" />
+      <PropertySelector />
 
       <button
         type="button"
-        class="ml-auto flex h-10 items-center gap-2 rounded-lg border bg-card px-3 text-sm text-muted-foreground shadow-xs transition hover:text-foreground md:ml-4 md:w-72"
+        class="ml-auto flex h-10 shrink-0 items-center gap-2 rounded-lg border bg-card px-3 text-sm text-muted-foreground shadow-xs transition hover:text-foreground md:ml-4 md:w-72"
         aria-label="Search"
         @click="ui.searchOpen = true"
       >
@@ -43,7 +42,7 @@ async function onInstall() {
         <kbd class="ml-auto hidden rounded border px-1.5 text-[11px] md:inline">⌘K</kbd>
       </button>
 
-      <div class="flex items-center gap-1 md:ml-auto">
+      <div class="flex shrink-0 items-center gap-1 md:ml-auto">
         <NotificationCenter />
         <DropdownMenu>
           <DropdownMenuTrigger class="rounded-full outline-none focus-visible:ring-[3px] focus-visible:ring-ring/40" aria-label="Account menu">

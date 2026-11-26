@@ -12,7 +12,7 @@ const rate = computed(() => (props.property.total_beds ? Math.round(((props.prop
 <template>
   <RouterLink
     :to="`/properties/${encodeURIComponent(property.name)}`"
-    class="group flex flex-col rounded-xl border bg-card p-5 shadow-xs transition hover:border-primary/30 hover:shadow-sm focus-visible:outline-none focus-visible:ring-[3px] focus-visible:ring-ring/40"
+    class="group flex min-w-0 flex-col rounded-xl border bg-card p-4 shadow-xs sm:p-5 transition hover:border-primary/30 hover:shadow-sm focus-visible:outline-none focus-visible:ring-[3px] focus-visible:ring-ring/40"
   >
     <div class="flex items-start gap-3">
       <span class="flex size-10 shrink-0 items-center justify-center rounded-lg bg-primary/10 text-primary"><Building2 class="size-5" /></span>
